@@ -27,7 +27,10 @@ var Chains = require("bluebird-chains");
 
   // Preconfigure Views Required if they dont exist
   Startup.checkDBViews = function (db) {
-      return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve,reject){
+
+      // Discovered Devices Listing View
+      var DiscDeviceList = new Promise(function (resolve, reject) {
           return db.get('_design/DiscoveredDeviceListing', function(err, doc){
             if (err != null) {
               console.log("Creating _design/DiscoveredDeviceListing view");
@@ -40,9 +43,39 @@ var Chains = require("bluebird-chains");
               });
             }
             else {
-              console.log('* Configuration Record: ' + colors.green('OK'));
+              console.log('* Device Listing View: ' + colors.green('OK'));
               return resolve(db);
             }
           });
       });
+
+      // Ping Results View
+      var PingResultsView = new Promise(function (resolve, reject) {
+          return db.get('_design/PingResults', function(err, doc){
+            if (err != null) {
+              console.log("Creating _design/PingResults view");
+              return db.insert({ "views": {
+                                        "max": { "map": function (doc) {if (doc.type == 'PingResult') {
+                                            for (var idx in doc.pingResults) { emit(doc.pingResults[idx].sampleTime, doc.pingResults[idx].maximum);}
+                                          } } },
+                                          "min": { "map": function (doc) {if (doc.type == 'PingResult') {
+                                              for (var idx in doc.pingResults) { emit(doc.pingResults[idx].sampleTime, doc.pingResults[idx].minimum);}
+                                            } } },
+                                          "avg": { "map": function (doc) {if (doc.type == 'PingResult') {
+                                              for (var idx in doc.pingResults) { emit(doc.pingResults[idx].sampleTime, doc.pingResults[idx].average);}
+                                            } } },                                     
+                                          } }, '_design/PingResults', function (err, res) {
+                if (err != null) {
+                  return reject(err);
+                }
+              });
+            }
+            else {
+              console.log('* Ping Results View: ' + colors.green('OK'));
+              return resolve(db);
+            }
+          });
+      });
+    });
+
   };
