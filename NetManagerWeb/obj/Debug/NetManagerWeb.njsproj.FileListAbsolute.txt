@@ -1,0 +1,2 @@
+E:\Dev\NetManager\WebUI\obj\Debug\NetManagerWeb.njsprojResolveAssemblyReference.cache
+E:\Dev\NetManager\WebUI\bin\Microsoft.NodejsTools.WebRole.dll

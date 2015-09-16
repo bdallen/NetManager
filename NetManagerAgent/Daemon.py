@@ -36,7 +36,7 @@ def NeighborDiscovery(q, db, strAgentName):
         map_routers = '''function (doc) { if (doc.type === 'PERouter') {emit(doc,doc.name);}}''';
         results = db.query(map_routers);
         for router in results:
-            Router.Router.GetNeighbors(router, db);
+            Router.GetNeighbors(router, db);
 
         # Change Agent Status if Running
         if discAgent.discRunning == False:
@@ -72,7 +72,7 @@ def MonitorNeighbors(q, db, strAgentName):
         for endpoint in results:
             try:
                 rtr = db.get(endpoint.key['seenBy']);
-                Router.Router.PingNeighbor(endpoint, rtr, db)
+                Router.PingNeighbor(endpoint, rtr, db)
             except Exception:
                 rtr = None
                 endpoint = None

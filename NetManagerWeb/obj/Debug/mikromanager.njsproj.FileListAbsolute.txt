@@ -1,0 +1,2 @@
+E:\Dev\MikroManager\obj\Debug\mikromanager.njsprojResolveAssemblyReference.cache
+E:\Dev\MikroManager\bin\Microsoft.NodejsTools.WebRole.dll

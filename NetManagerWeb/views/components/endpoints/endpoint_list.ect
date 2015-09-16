@@ -1,0 +1,38 @@
+<script src="/js/extensions/bootstrap-table-flatJSON.min.js"></script>
+<table id="endpoints"></table>
+<script type="text/javascript">
+  $('#endpoints').bootstrapTable({
+    mehod: 'get',
+    url: '/data/endpoints',
+    cache: false,
+    striped: true,
+    pageSize: '25',
+    height: '1100',
+    pagination:true,
+    flat:true,
+    search:true,
+    columns: [
+      {field: 'rows.value.devName', title:'Device Name', sortable:true},
+      {field: 'rows.value.macAddress', title:'Device MAC', sortable:true},
+      {field: 'rows.value.ipAddress', title:'IPv4 Address', sortable:true},
+      {field: 'rows.value.board', title:'Board', sortable:true},
+      {field: 'rows.value.version', title:'Version', sortable:false},
+      {field: 'rows.value.seenBy', title:'Seen By', sortable:true},
+      {field: 'rows.value.monitorNeighbor', title:'Monitored', sortable:true, formatter:'monitoredFormatter'}
+    ]
+  });
+
+  function updateStats() {
+   $('#endpoints').bootstrapTable('refresh');
+  }
+  setInterval(updateStats,10000);
+
+  function monitoredFormatter(value, row, index) {
+    var icon = 'glyphicon-remove';
+      if (value == 'true'){
+        icon = 'glyphicon-ok';
+      }
+      return '<i class="glyphicon ' + icon + '"></i> ';
+  }
+
+</script>

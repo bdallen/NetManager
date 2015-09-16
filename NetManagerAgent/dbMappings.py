@@ -17,6 +17,11 @@ class Agent(Document):
     probeInterval = IntegerField(default=60)
     probeRunning = BooleanField(default=False)
     command = TextField()
+    errors = ListField(DictField(Mapping.build(
+        ErrorDateTime = DateTimeField(default=datetime.now()),
+        ErrorCategory = TextField(),
+        ErrorDetails = TextField()
+    )))
 
 # ----------------------------------------------
 # | Endpoint Mapping Class to CouchDB Document |
@@ -45,3 +50,5 @@ class PingResult(Document):
         average = TextField(),
         maximum = TextField()
     )))
+
+class DiscoveredDevicesList(Document):
