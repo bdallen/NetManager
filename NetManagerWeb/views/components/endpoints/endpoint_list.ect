@@ -1,31 +1,6 @@
 <script src="/js/extensions/bootstrap-table-flatJSON.min.js"></script>
 <table id="endpoints"></table>
 <script type="text/javascript">
-/*
-loadPage: function()
-{
-    $.getJSON("/data/endpoints", displayData);
-}
-
-displayData: function(json)
-    {
-        quote_count = json["total_rows"];
-        extractedData = $("{/}");
-        for (var i=0; i<quote_count; i++) {
-            var doc = json["rows"][i]["value"];
-            var devName = doc["devName"].toString();
-            var macAddress = doc["macAddress"].toString();
-
-            //Create an HTML snippet from the fields of each quote document
-            extractedData.append("");
-            extractedData.append("");
-
-        }
-    }
-*/
-
-
-
   $('#endpoints').bootstrapTable({
     method: 'get',
     url: '/data/endpoints',
