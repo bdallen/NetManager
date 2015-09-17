@@ -1,6 +1,16 @@
 #!/usr/bin/env python
 
-import threading, configparser, schedule, collections, sys, time, couchdb, socket, select, Router, dbMappings
+import threading
+import configparser
+import time
+
+import schedule
+
+import couchdb
+
+import dbMappings
+from libs import ROS
+
 
 # -----------------------------
 #| Maintenance Scheduler Loop |
@@ -36,7 +46,8 @@ def NeighborDiscovery(q, db, strAgentName):
         map_routers = '''function (doc) { if (doc.type === 'PERouter') {emit(doc,doc.name);}}''';
         results = db.query(map_routers);
         for router in results:
-            Router.GetNeighbors(router, db);
+            if router.key['api'] == "MTROS":
+                ROS.GetNeighbors(router, db);
 
         # Change Agent Status if Running
         if discAgent.discRunning == False:
@@ -72,7 +83,7 @@ def MonitorNeighbors(q, db, strAgentName):
         for endpoint in results:
             try:
                 rtr = db.get(endpoint.key['seenBy']);
-                Router.PingNeighbor(endpoint, rtr, db)
+                ROS.PingNeighbor(endpoint, rtr, db)
             except Exception:
                 rtr = None
                 endpoint = None
