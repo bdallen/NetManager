@@ -50,5 +50,3 @@ class PingResult(Document):
         average = TextField(),
         maximum = TextField()
     )))
-
-class DiscoveredDevicesList(Document):

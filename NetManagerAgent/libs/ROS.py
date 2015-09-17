@@ -1,6 +1,10 @@
 __author__ = 'brendonallen'
 
-import couchdb, collections, string, sys, time, socket, select, MikrotikAPI, dbMappings
+import socket
+
+import dbMappings
+from api import MikrotikAPI
+
 
 def GetNeighbors(router, db):
     try:
