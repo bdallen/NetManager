@@ -12,7 +12,7 @@ router.get('/endpoints', function(req, res, next) {
     db.view('DiscoveredDeviceListing', 'complete_list'
     , function (err, result) {
       if (err) console.log(err);
-      res.status(200).send(result);
+      res.status(200).send(result.rows);
   });
 });
 
