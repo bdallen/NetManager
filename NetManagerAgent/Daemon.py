@@ -48,6 +48,7 @@ def NeighborDiscovery(q, db, strAgentName):
         for router in results:
             if router.key['api'] == "MTROS":
                 ROS.GetNeighbors(router, db);
+                ROS.GetCurrentVRF(router, db);
 
         # Change Agent Status if Running
         if discAgent.discRunning == False:
