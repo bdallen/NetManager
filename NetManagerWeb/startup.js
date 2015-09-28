@@ -30,6 +30,27 @@ var Chains = require("bluebird-chains");
     return new Promise(function(resolve,reject){
 
       // Discovered Devices Listing View
+      var VRFView = new Promise(function (resolve, reject) {
+          return db.get('_design/VRF', function(err, doc){
+            if (err != null) {
+              console.log("Creating _design/VRF view");
+              return db.insert({ "views": {
+                                        "discovered_list": { "map": function (doc) {if (doc.type == 'DiscoveredVRF') emit(doc._id, doc);} },
+                                        "list": { "map": function (doc) {if (doc.type == 'VRF') emit(doc._id, doc);} },
+                                      } }, '_design/VRF', function (err, res) {
+                if (err != null) {
+                  return reject(err);
+                }
+              });
+            }
+            else {
+              console.log('* Device Listing View: ' + colors.green('OK'));
+              return resolve(db);
+            }
+          });
+      });
+
+      // Discovered Devices Listing View
       var DiscDeviceList = new Promise(function (resolve, reject) {
           return db.get('_design/DiscoveredDeviceListing', function(err, doc){
             if (err != null) {
@@ -63,7 +84,7 @@ var Chains = require("bluebird-chains");
                                             } } },
                                           "avg": { "map": function (doc) {if (doc.type == 'PingResult') {
                                               for (var idx in doc.pingResults) { emit(doc.pingResults[idx].sampleTime, doc.pingResults[idx].average);}
-                                            } } },                                     
+                                            } } },
                                           } }, '_design/PingResults', function (err, res) {
                 if (err != null) {
                   return reject(err);

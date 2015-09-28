@@ -35,6 +35,8 @@ class DiscoveredDevice(Document):
     board = TextField()
     version = TextField()
     macAddress = TextField()
+    interface = TextField()
+    remoteInterface = TextField()
     monitor = TextField(default="false")
 
 # -------------------------------
@@ -50,3 +52,15 @@ class PingResult(Document):
         average = TextField(),
         maximum = TextField()
     )))
+
+# ------------------------------
+# | Endpoint VRF Mapping Class |
+# ------------------------------
+class VRF(Document):
+    type = TextField(default="VRF")
+    routingMark = TextField()
+    distinguisher = TextField()
+    interfaces = TextField()
+    importRouteTargets = TextField()
+    exportRouteTargets = TextField()
+    changesAcknowledged = BooleanField()

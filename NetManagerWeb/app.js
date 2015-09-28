@@ -9,8 +9,12 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var route_admin = require('./routes/admin');
 var route_monitoring = require('./routes/monitoring');
-var route_data_netmanager = require('./routes/data/netmanager');
 var route_modules_mikrotik = require('./routes/modules/mikrotik');
+
+
+// Routes for /data
+var route_data_vrf = require('./routes/data/vrf');
+var route_data_endpoints = require('./routes/data/endpoints');
 
 
 var app = express();
@@ -34,10 +38,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/data', route_data_netmanager);
 app.use('/monitoring', route_monitoring);
 app.use('/admin', route_admin);
 app.use('/modules/mikrotik', route_modules_mikrotik);
+
+// Application Definitions for /data
+app.use('/data/vrf', route_data_vrf);
+app.use('/data/endpoints', route_data_endpoints);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

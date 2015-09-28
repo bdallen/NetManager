@@ -29,6 +29,8 @@ def GetNeighbors(router, db):
                                board = neighbor[1]['=board'],
                                version = neighbor[1]['=version'],
                                macAddress = neighbor[1]['=mac-address'],
+                               interface = neighbor[1]['=interface'],
+                               remoteInterface = neighbor[1]['=interface-name'],
                         )
                         endpoint._set_id('discoveredDevice-' + neighbor[1]['=mac-address'].replace(":",""));
                         endpoint.store(db);
@@ -58,6 +60,16 @@ def GetNeighbors(router, db):
                         # Update the Name if it has changed
                         if endpoint.devName != neighbor[1]['=identity']:
                             endpoint.devName = neighbor[1]['=identity']
+                            changed = True;
+
+                        # Update the Interface if it has changed
+                        if endpoint.interface != neighbor[1]['=interface']:
+                            endpoint.interface = neighbor[1]['=interface']
+                            changed = True;
+
+                        # Update the Interface if it has changed
+                        if endpoint.remoteInterface != neighbor[1]['=interface-name']:
+                            endpoint.remoteInterface = neighbor[1]['=interface-name']
                             changed = True;
 
                         if changed == True:
@@ -121,5 +133,69 @@ def PingNeighbor(endpoint, router, db):
         sockRouter = None;
     except ValueError:
         print("Unable to connect to router");
+        pass;
+    return None
+
+
+
+def GetCurrentVRF(router, db):
+    try:
+        sockRouter = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sockRouter.connect((router.key['ipaddress'], 8728))
+        apiROS = MikrotikAPI.ApiRos(sockRouter)
+        apiROS.login(router.key['username'], router.key['password'])
+    except ValueError:
+        return None
+    try:
+        strCommand = ["/ip/route/vrf/print"]                          # Command to print out the Current VRF Listing
+        arrVRF = apiROS.talk(strCommand)                              # Get the Array back from the PE Router
+        for curVrf in arrVRF:                                         # Loop through the Results and insert into a dictionary list using MAC as primary Key
+            if curVrf[0] != '!done':
+                try:
+                    vrf = dbMappings.VRF.load(db, 'discoveredVRF-' + curVrf[1]['=route-distinguisher'])
+                    if vrf == None:
+                        vrf = dbMappings.VRF(
+                            type = "DiscoveredVRF",
+                            routingMark = curVrf[1]['=routing-mark'],
+                            distinguisher = curVrf[1]['=route-distinguisher'],
+                            interfaces = curVrf[1]['=interfaces'],
+                            changesAcknowledged = False,
+                        )
+                        vrf._set_id('discoveredVRF-' + curVrf[1]['=route-distinguisher'])
+                        vrf.store(db)
+                    else:
+                        changed = False
+
+                        # Update Interfaces if they have changed
+                        if vrf.interfaces != curVrf[1]['=interfaces']:
+                            vrf.interfaces = curVrf[1]['=interfaces']
+                            changed = True
+
+                        # Update Interfaces if they have changed
+                        if vrf.importRouteTargets != curVrf[1]['=import-route-targets']:
+                            vrf.importRouteTargets = curVrf[1]['=import-route-targets']
+                            changed = True
+
+                        # Update Interfaces if they have changed
+                        if vrf.exportRouteTargets != curVrf[1]['=export-route-targets']:
+                            vrf.exportRouteTargets = curVrf[1]['=export-route-targets']
+                            changed = True
+
+                        vrf.type = "DiscoveredVRF"
+                        changed = True
+
+                        if changed == True:
+                            vrf.changedAcknowledged = False
+                            vrf.store(db)
+
+                except Exception:
+                    pass
+    except:
+        pass
+    try:
+        sockRouter.close()
+        sockRouter = None
+    except ValueError:
+        print("Unable to connect to router")
         pass;
     return None
