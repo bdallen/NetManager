@@ -155,6 +155,7 @@ def GetCurrentVRF(router, db):
                     vrf = dbMappings.VRF.load(db, 'discoveredVRF-' + curVrf[1]['=route-distinguisher'])
                     if vrf == None:
                         vrf = dbMappings.VRF(
+                            type = "DiscoveredVRF",
                             routingMark = curVrf[1]['=routing-mark'],
                             distinguisher = curVrf[1]['=route-distinguisher'],
                             interfaces = curVrf[1]['=interfaces'],
@@ -179,6 +180,9 @@ def GetCurrentVRF(router, db):
                         if vrf.exportRouteTargets != curVrf[1]['=export-route-targets']:
                             vrf.exportRouteTargets = curVrf[1]['=export-route-targets']
                             changed = True
+
+                        vrf.type = "DiscoveredVRF"
+                        changed = True
 
                         if changed == True:
                             vrf.changedAcknowledged = False
