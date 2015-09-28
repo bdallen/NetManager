@@ -8,7 +8,7 @@ var conndb = require('nano')(config.couchdb.url);
 db = conndb.db.use(config.couchdb.db);
 
 /* GET home page. */
-router.get('/endpoints', function(req, res, next) {
+router.get('/list/discovered', function(req, res, next) {
     db.view('DiscoveredDeviceListing', 'complete_list'
     , function (err, result) {
       if (err) console.log(err);
@@ -17,7 +17,7 @@ router.get('/endpoints', function(req, res, next) {
 });
 
 /* GET home page. */
-router.get('/endpoints/:mac/ping/max', function(req, res, next) {
+router.get('/:mac/ping/max', function(req, res, next) {
   db.temporaryView({
     map: function(doc) {
       console.log("output", { mac: doc.macAddress, params: req.params });
