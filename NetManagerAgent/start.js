@@ -16,10 +16,11 @@ console.log(colors.rainbow("|_| \\_|\\___|\\__|_|  |_|\\__,_|_| |_|\\__,_|\\__, 
 console.log(colors.rainbow("                                         |___/                   "));
 console.log('');
 console.log('NetManager Agent - Starting Up');
-console.log('Copyright (c) 2016 LevelUP Solutions Pty Ltd');
+console.log('Copyright (c) 2016 Brendon D Allen');
 console.log('');
+var http_server = require('./http_server.js');
 console.log('');
-console.log('***** Database Checks *******');
+console.log('***** Startup Sequence Checks *******');
 
 // Lets try and connect to the database server
 try {
@@ -31,4 +32,11 @@ try {
     process.exit();
 }
 
-startup_db.CheckDBExists(nmDb).then(startup_db.CheckAgentConfig);
+// Run preflight checks before starting agent
+startup_db.CheckDBExists(nmDb)
+    .then(startup_db.CheckAgentConfig)
+    .catch(function (err) {
+        console.log('');
+        console.log(colors.red('********* FAILED STARTUP **********'));
+        process.exit();
+    });

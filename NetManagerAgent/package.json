@@ -11,7 +11,7 @@
   "dependencies": {
     "bluebird": "^3.1.5",
     "colors": "^1.1.2",
-    "mikronode": "git+ssh://git@github.com/Trakkasure/mikronode.git#release",
+    "mikronode": "git+https://github.com/Trakkasure/mikronode.git#release",
     "nano-blue": "^0.3.0"
   }
 }
