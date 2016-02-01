@@ -18,7 +18,7 @@ startup_db.CheckDBExists = function (nmDb) {
         // See if we can fetch the configuration document from the database
         nmDb.get('netmanager-configuration').then(function () {
             console.log('* Configuration Record in Database ' + colors.green(config.couchdb.db) + ' exists.');
-            return resolve(nmDb);
+            resolve(nmDb);
         })
         // Unable to fetch the record, we probably dont have a database created
         .catch(function () {
@@ -27,12 +27,12 @@ startup_db.CheckDBExists = function (nmDb) {
             nano.db.create(config.couchdb.db).then(function () {
                 console.log('* Created Database: ' + colors.green(config.couchdb.db));
                 nmDb.insert({_id: 'netmanager-configuration'}).catch(function (err) {
-                    return reject(err);
+                    reject(err);
                 });
                 return resolve(nmDb);
             }).catch(function (err) {
                 console.log('* Database Creation: ' + colors.red('FAILED'));
-                return reject(err);
+                reject(err);
             });
 
         });
@@ -46,9 +46,10 @@ startup_db.CheckDBExists = function (nmDb) {
  */
 startup_db.CheckAgentConfig = function (nmDb) {
     // See if we can fetch the configuration document from the database
-    return nmDb.get('agent - ' + os.hostname()).then(function () {
+    return nmDb.get('agent-' + os.hostname()).then(function () {
         console.log('* Agent configuration for ' + colors.green(os.hostname()) + ' exists.');
     }).catch( function () {
+        console.log('* Agent configuration for ' + colors.red(os.hostname()) + ' does not exist.');
         return nmDb.insert({_id: 'agent-' + os.hostname()});
     });
 };
