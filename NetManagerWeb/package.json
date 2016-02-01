@@ -6,6 +6,8 @@
     "start": "node ./start.js"
   },
   "dependencies": {
+    "async": "^1.5.2",
+    "babel": "^6.3.26",
     "bluebird": "^2.9.34",
     "bluebird-chains": "0.0.4",
     "body-parser": "~1.13.2",
@@ -15,9 +17,9 @@
     "cradle": "^0.6.9",
     "debug": "~2.2.0",
     "ect": "^0.5.9",
-    "express": "~4.13.1",
+    "express": "~4.13.4",
     "infinite-loop": "^0.2.2",
-    "mikronode": "^0.3.3",
+    "mikronode": "git+ssh://git@github.com/Trakkasure/mikronode.git#release",
     "morgan": "~1.6.1",
     "nano": "^6.1.5",
     "native-or-bluebird": "^1.2.0",

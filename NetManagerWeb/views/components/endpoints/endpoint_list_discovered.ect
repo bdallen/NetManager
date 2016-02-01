@@ -3,22 +3,22 @@
 <script type="text/javascript">
   $('#endpoints').bootstrapTable({
     method: 'get',
-    url: '/data/endpoints/list/discovered',
+    url: '/modules/mikrotik/10.200.3.254/neighbors',
     cache: false,
     striped: true,
     pageSize: '25',
     height: '1100',
     pagination:true,
-    flat:true,
+    flat:false,
     search:true,
     columns: [
-      {field: 'value.devName', title:'Device Name', sortable:true},
-      {field: 'value.macAddress', title:'Device MAC', sortable:true},
-      {field: 'value.ipAddress', title:'IPv4 Address', sortable:true},
-      {field: 'value.board', title:'Board', sortable:true},
-      {field: 'value.version', title:'Version', sortable:false},
-      {field: 'value.seenBy', title:'Seen By', sortable:true},
-      {field: 'value.monitor', title:'Monitored', sortable:true, formatter:'monitoredFormatter'}
+      {field: 'identity', title:'Device Name', sortable:true},
+      {field: 'mac-address', title:'Device MAC', sortable:true},
+      {field: 'address4', title:'IPv4 Address', sortable:true},
+      {field: 'board', title:'Board', sortable:true},
+      {field: 'version', title:'Version', sortable:false},
+      {field: 'seenBy', title:'Seen By', sortable:true},
+      {field: 'monitor', title:'Monitored', sortable:true, formatter:'monitoredFormatter'}
     ]
   });
 

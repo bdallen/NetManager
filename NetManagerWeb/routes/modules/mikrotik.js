@@ -1,7 +1,10 @@
+"use strict";
+
+var config = require("../../config.js");   
 var express = require('express');
 var router = express.Router();
 
-var MikroNode = require('mikronode');
+var mikronode = require('mikronode');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,53 +13,35 @@ router.get('/', function(req, res, next) {
 
 // Interface Listings
 router.get('/:id/interfaces',function(req,res,next){
-  var connection = new MikroNode(req.params.id, 'admin', 'passw0rd');
-  connection.connect(function(conn) {
-    var chan=conn.openChannel();
-    chan.write('/interface/print',function(){
-      chan.on('done',function(data){
-        var parsed = MikroNode.parseItems(data);
-        res.send(parsed);
-        chan.close();
-        chan.close();
-        connection.close();
-      });
+
+    var connection = mikronode.getConnection(req.params.id, config.mikrotikapi.username, config.mikrotikapi.password, {closeOnDone: true});
+
+    connection.getConnectPromise().then((conn) => {
+      return conn.getCommandPromise("/interface/print");
+    }).then((result) => {
+      res.json(result);
     });
-  });
+
 });
 
 // Layer2 Neighbor Discovery
 router.get('/:id/neighbors',function(req,res,next){
-  var connection = new MikroNode(req.params.id, 'admin', 'passw0rd');
-  connection.connect(function(conn) {
-    var chan=conn.openChannel();
-    chan.write('/ip/neighbor/print',function(){
-      chan.on('done',function(data){
-        var parsed = MikroNode.parseItems(data);
-        res.send(parsed);
-        chan.close();
-        chan.close();
-        connection.close();
-      });
+    var connection = mikronode.getConnection(req.params.id, config.mikrotikapi.username, config.mikrotikapi.password, {closeOnDone: true});
+    connection.getConnectPromise().then((conn) => {
+      return conn.getCommandPromise("/ip/neighbor/print");
+    }).then((result) => {
+      res.json(result);
     });
-  });
 });
 
 // Router Ping
 router.get('/:id/ping/:device',function(req,res,next){
-  var connection = new MikroNode(req.params.id, 'admin', 'passw0rd');
-  connection.connect(function(conn) {
-    var chan=conn.openChannel();
-    chan.write('/ping','=address='+req.params.device,'=count=4',function(){
-      chan.on('done',function(data){
-        var parsed = MikroNode.parseItems(data);
-        res.send(parsed);
-        chan.close();
-        chan.close();
-        connection.close();
-      });
+    var connection = mikronode.getConnection(req.params.id, config.mikrotikapi.username, config.mikrotikapi.password, {closeOnDone: true});
+    connection.getConnectPromise().then((conn) => {
+      return conn.getCommandPromise("/ping", {'=address': req.params.device, '=count': '4'});
+    }).then((result) => {
+      res.json(result);
     });
-  });
 });
 
 module.exports = router;

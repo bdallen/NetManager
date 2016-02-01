@@ -17,7 +17,7 @@ var route_data_vrf = require('./routes/data/vrf');
 var route_data_endpoints = require('./routes/data/endpoints');
 
 
-var app = express();
+const app = express();
 
 var ectRenderer = ECT({
   watch: true,

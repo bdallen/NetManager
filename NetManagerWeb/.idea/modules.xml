@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/NetManagerAgent.iml" filepath="$PROJECT_DIR$/.idea/NetManagerAgent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/NetManagerWeb.iml" filepath="$PROJECT_DIR$/.idea/NetManagerWeb.iml" />
     </modules>
   </component>
 </project>

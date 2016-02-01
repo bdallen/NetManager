@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+var WebServer = exports;
+
+var colors = require('colors/safe');
+var Promise = require("native-or-bluebird");
 
 /**
  * Module dependencies.
@@ -7,27 +11,30 @@
 var app = require('../app');
 var debug = require('debug')('MikroManager:server');
 var http = require('http');
-
-/**
- * Get port from environment and store in Express.
- */
-
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-
 var server = http.createServer(app);
+var port = normalizePort(process.env.PORT || '3000');
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+WebServer.start = function() {
+  return new Promise(function (resolve, reject) {
+    try {
+      app.set('port', port);
+      server.listen(port);
+      server.on('error', onError);
+      server.on('listening', onListening);
+      console.log('* Startup Webserver: ' + colors.green('OK'));
+      return resolve();
+    } catch (err)
+    {
+      return reject(err);
+    }
+  });
+}
+
+
 
 /**
  * Normalize a port into a number, string, or false.

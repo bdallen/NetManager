@@ -1,11 +1,11 @@
+"use strict";
+
 var config = require("./config.js");                            // Config file
 var Startup = require('./startup.js');
-
 var colors = require('colors/safe');
 var cradle = require('cradle');
 var nano = require('nano')(config.couchdb.url);
-var Promise = require("native-or-bluebird");
-var Chains = require("bluebird-chains");
+var WebServer = require('./bin/www');
 
 // Starup Information
 console.log('---- NetManager Web Application Bootstrap ----');
@@ -21,9 +21,8 @@ try {
   process.exit();
 }
 
-// Check all systems are Sane then fire up the web service
-Startup.checkDBSetup(db).then(Startup.checkDBViews(db)).then(function(){
-  console.log('* System Startup: ' + colors.green('OK'));
-  console.log('* Starting Web Service');
-  var WebServer = require('./bin/www');
-});
+Startup.checkDBSetup(db).then(
+    Startup.checkDBViews(db).then(
+        WebServer.start()
+    )
+);
