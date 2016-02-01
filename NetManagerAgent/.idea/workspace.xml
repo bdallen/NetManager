@@ -2,32 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b932ebdf-b1d3-427a-b58d-252712a767d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NetManagerWeb/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NetManagerWeb/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NetManagerWeb/.idea/libraries/NetManagerWeb_node_modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../NetManagerWeb/.idea/vcs.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/.name" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/NetManagerDaemon.iml" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/NetManagerDaemon.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/misc.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/modules.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/vcs.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Daemon.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/Daemon.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/NetManager Daemon.pyproj" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/NetManager Daemon.pyproj" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/agent-config.conf" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/agent-config.conf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/api/MikrotikAPI.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/api/MikrotikAPI.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/api/__init__.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/libs/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dbMappings.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/dbMappings.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/ROS.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/libs/ROS.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/__init__.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/api/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerWeb/Start.js" afterPath="$PROJECT_DIR$/../NetManagerWeb/Start.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerWeb/app.js" afterPath="$PROJECT_DIR$/../NetManagerWeb/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerWeb/bin/www" afterPath="$PROJECT_DIR$/../NetManagerWeb/bin/www" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerWeb/config.js" afterPath="$PROJECT_DIR$/../NetManagerWeb/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerWeb/package.json" afterPath="$PROJECT_DIR$/../NetManagerWeb/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerWeb/routes/modules/mikrotik.js" afterPath="$PROJECT_DIR$/../NetManagerWeb/routes/modules/mikrotik.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerWeb/startup.js" afterPath="$PROJECT_DIR$/../NetManagerWeb/startup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerWeb/views/components/endpoints/endpoint_list_discovered.ect" afterPath="$PROJECT_DIR$/../NetManagerWeb/views/components/endpoints/endpoint_list_discovered.ect" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/start.js" afterPath="$PROJECT_DIR$/start.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/startup_db.js" afterPath="$PROJECT_DIR$/startup_db.js" />
     </list>
     <ignored path="NetManagerAgent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/start.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+              <caret line="33" column="71" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -61,8 +37,8 @@
       <file leaf-file-name="startup_db.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/startup_db.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8252427">
-              <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+            <state vertical-scroll-proportion="-0.09223301">
+              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -79,8 +55,8 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/config.js" />
         <option value="$PROJECT_DIR$/.eslintrc" />
-        <option value="$PROJECT_DIR$/startup_db.js" />
         <option value="$PROJECT_DIR$/start.js" />
+        <option value="$PROJECT_DIR$/startup_db.js" />
       </list>
     </option>
   </component>
@@ -259,10 +235,10 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32917964" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -342,15 +318,15 @@
     <entry file="file://$PROJECT_DIR$/start.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <caret line="33" column="71" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/startup_db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8252427">
-          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+        <state vertical-scroll-proportion="-0.09223301">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
           <folding />
         </state>
       </provider>

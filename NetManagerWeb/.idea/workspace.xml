@@ -2,32 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2df0c824-54f6-449d-bc86-e6ec7f806f41" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/NetManagerWeb_node_modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/.idea/.name" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/.name" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/.idea/NetManagerDaemon.iml" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/NetManagerDaemon.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/.idea/misc.xml" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/misc.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/.idea/modules.xml" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/modules.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/vcs.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/Daemon.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/Daemon.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/NetManager Daemon.pyproj" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/NetManager Daemon.pyproj" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/agent-config.conf" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/agent-config.conf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/api/MikrotikAPI.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/api/MikrotikAPI.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/api/__init__.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/libs/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/dbMappings.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/dbMappings.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/libs/ROS.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/libs/ROS.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../NetManagerAgent/libs/__init__.py" afterPath="$PROJECT_DIR$/../NetManagerAgent-OLD/api/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Start.js" afterPath="$PROJECT_DIR$/Start.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.js" afterPath="$PROJECT_DIR$/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/modules/mikrotik.js" afterPath="$PROJECT_DIR$/routes/modules/mikrotik.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/startup.js" afterPath="$PROJECT_DIR$/startup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/components/endpoints/endpoint_list_discovered.ect" afterPath="$PROJECT_DIR$/views/components/endpoints/endpoint_list_discovered.ect" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerAgent/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../NetManagerAgent/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerAgent/start.js" afterPath="$PROJECT_DIR$/../NetManagerAgent/start.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerAgent/startup_db.js" afterPath="$PROJECT_DIR$/../NetManagerAgent/startup_db.js" />
     </list>
     <ignored path="NetManagerWeb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,8 +38,8 @@
       <file leaf-file-name="startup.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/startup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28125">
-              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.359375">
+              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -156,7 +133,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -177,6 +153,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -266,9 +243,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="23" width="1920" height="1057" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18229167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18229167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -305,6 +282,46 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Start.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="2" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/startup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/modules/mikrotik.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Start.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -576,8 +593,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/startup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28125">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.359375">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
           <folding />
         </state>
       </provider>

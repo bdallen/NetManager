@@ -31,4 +31,4 @@ try {
     process.exit();
 }
 
-startup_db.CheckDBExists(nmDb);
+startup_db.CheckDBExists(nmDb).then(startup_db.CheckAgentConfig(nmDb));
