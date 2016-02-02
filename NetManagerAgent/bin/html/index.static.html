@@ -142,7 +142,7 @@
      */
 
     .splash-container {
-        background: #00cc7a;
+        background: #ffffb3;
         z-index: 1;
         overflow: hidden;
         /* The following styles are required for the "scroll-over" effect */
@@ -307,9 +307,9 @@
     </div>
 </div>
 
-<div class="splash-container">
+<div id="overallstatus" class="splash-container">
     <div class="splash">
-        <h1 class="splash-head">Agent Seems OK</h1>
+        <h1 id="statustext" class="splash-head">No Status Yet</h1>
         <p class="splash-subhead">
             Scroll down for further status
         </p>
@@ -388,6 +388,14 @@
 
 <script>
     $(document).ready(function() {
+        CheckStatus();
+    });
+
+    setInterval(function() {
+        CheckStatus();
+    }, 5000);
+
+    function CheckStatus(){
         $.getJSON('/hostname').done(function(data) {
             $("#hostname").text('Running On: ' + data);
         });
@@ -396,11 +404,59 @@
             SetNeighborDiscovery(data);
             SetNeighborMonitor(data);
         });
-    });
+    }
 
     function SetMainStatus(data)
     {
+        var NDisc = IsNeighborDiscOK(data);
+        var NPoll = IsNeighborMonOK(data);
 
+        if (NDisc && NPoll)
+        {
+            $('#overallstatus').css("background-color","#00cc7a");
+            $('#statustext').text("Agent OK");
+        }
+        else
+        {
+            $('#overallstatus').css("background-color","#ff5050");
+            $('#statustext').text("Agent Problem");
+        }
+    }
+
+    /*
+        Check Neighbor Discovery Service
+     */
+    function IsNeighborDiscOK(data)
+    {
+        if (data.neighbor_discovery.running && data.neighbor_discovery.enabled)
+        {
+            return true;
+        }
+
+        if (!data.neighbor_discovery.enabled)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    /*
+     Check Neighbor Polling Service
+     */
+    function IsNeighborMonOK(data)
+    {
+        if (data.neighbor_poll.running && data.neighbor_poll.enabled)
+        {
+            return true;
+        }
+
+        if (!data.neighbor_poll.enabled)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     function SetNeighborDiscovery(data)
