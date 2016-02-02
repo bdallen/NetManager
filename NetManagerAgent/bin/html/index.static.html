@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NetManager - Agent Status</title>
+    <title>NetManager Agent - Status Panel</title>
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <style>
     * {
         -webkit-box-sizing: border-box;
@@ -292,15 +292,17 @@
     }
     </style>
 
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
 </head>
 <body>
 
 <div class="header">
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">NetManager - Agent Status Panel</a>
+        <a class="pure-menu-heading" href="">NetManager Agent - Status Panel</a>
 
         <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected">Running On:</li>
+            <li class="pure-menu-item"><a id="hostname" href="#" class="pure-menu-link">Running On:</a></li>
         </ul>
     </div>
 </div>
@@ -317,43 +319,48 @@
 <div class="content-wrapper">
     <div class="content">
         <h2 class="content-head is-center">Further Status</h2>
-
+        <div style="width:300px; margin:0 auto;">
+        <p>
+        <i class="fa fa-check-square-o"> - Service Enabled and Running</i><br>
+        <i class="fa fa-square-o"> - Service Enabled and Not Running</i><br>
+        <i class="fa fa-minus-square"> - Service Disabled</i><br>
+        </p>
+        </div>
         <div class="pure-g">
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-
+            <h3 class="content-subhead">
+                <i id="neighbordisc" class="fa fa-minus-square"></i>
+                Neighbor Discovery Service
+            </h3>
+            <p>
+                Neighbor Discovery Service is used to find neighboring routers connected to the PE Router using CDP.
+            </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <h3 class="content-subhead">
-                    <i class="fa fa-rocket"></i>
-                    Get Started Quickly
+                    <i id="neighborpoll" class="fa fa-minus-square"></i>
+                    Neighbor Monitoring Service
                 </h3>
                 <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    Neighbor Monitoring Service is used to monitor neighboring routers by running a Layer2 Ping to the Endpoint.
                 </p>
             </div>
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <h3 class="content-subhead">
-                    <i class="fa fa-mobile"></i>
-                    Responsive Layouts
+                    <i class="fa fa-minus-square"></i>
+                    VRF Management Serivce
                 </h3>
                 <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    VRF Management Service is used to manage VRF's within the Network.
                 </p>
             </div>
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <h3 class="content-subhead">
-                    <i class="fa fa-th-large"></i>
-                    Modular
+                    <i class="fa fa-minus-square"></i>
+                    QinQ Vlan Interface Management Serivce
                 </h3>
                 <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-check-square-o"></i>
-                    Plays Nice
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                    QinQ VLAN Interface Management Service is used to assign and unassign a QinQ tag to customer.
                 </p>
             </div>
         </div>
@@ -361,66 +368,72 @@
 
     <div class="ribbon l-box-lrg pure-g">
         <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-            <img class="pure-img-responsive" alt="File Icons" width="300" src="img/common/file-icons.png">
+            <i class="fa fa-info-circle fa-5x"></i>
+            <p></p>
         </div>
         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
-
-            <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
-
+            <h2 class="content-head content-head-ribbon">Something Wrong?</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor.
+                This page is generated as read only for status' and will only display the status of the agent. If you wish to manage this agents services
+                Please go into the NetManager Web Portal and Manage it through the administration system.
             </p>
         </div>
     </div>
 
-    <div class="content">
-        <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
-
-        <div class="pure-g">
-            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
-
-                        <label for="name">Your Name</label>
-                        <input id="name" type="text" placeholder="Your Name">
-
-
-                        <label for="email">Your Email</label>
-                        <input id="email" type="email" placeholder="Your Email">
-
-                        <label for="password">Your Password</label>
-                        <input id="password" type="password" placeholder="Your Password">
-
-                        <button type="submit" class="pure-button">Sign Up</button>
-                    </fieldset>
-                </form>
-            </div>
-
-            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-                <h4>Contact Us</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                </p>
-
-                <h4>More Information</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-            </div>
-        </div>
-
-    </div>
     <div class="footer l-box is-center">
         Copyright (c) 2016 - Brendon D Allen
     </div>
 
 </div>
+
+<script>
+    $(document).ready(function() {
+        $.getJSON('/hostname').done(function(data) {
+            $("#hostname").text('Running On: ' + data);
+        });
+        $.getJSON('/status').done(function(data) {
+            SetMainStatus(data);
+            SetNeighborDiscovery(data);
+            SetNeighborMonitor(data);
+        });
+    });
+
+    function SetMainStatus(data)
+    {
+
+    }
+
+    function SetNeighborDiscovery(data)
+    {
+        if (data.neighbor_discovery.running && data.neighbor_discovery.enabled)
+        {
+            $("#neighbordisc").attr("class", "fa fa-check-square-o");
+        }
+        if (!data.neighbor_discovery.running && data.neighbor_discovery.enabled)
+        {
+            $("#neighbordisc").attr("class", "fa fa-square-o");
+        }
+        if (!data.neighbor_discovery.enabled)
+        {
+            $("#neighbordisc").attr("class", "fa fa-minus-square");
+        }
+    }
+
+    function SetNeighborMonitor(data)
+    {
+        if (data.neighbor_poll.running && data.neighbor_poll.enabled)
+        {
+            $("#neighborpoll").attr("class", "fa fa-check-square-o");
+        }
+        if (!data.neighbor_poll.running && data.neighbor_poll.enabled)
+        {
+            $("#neighborpoll").attr("class", "fa fa-square-o");
+        }
+        if (!data.neighbor_poll.enabled)
+        {
+            $("#neighborpoll").attr("class", "fa fa-minus-square");
+        }
+    }
+</script>
 </body>
 </html>

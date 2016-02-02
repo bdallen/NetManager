@@ -19,7 +19,9 @@ agent_status.http_service.running = false;
     Neighbor Polling Status
  */
 agent_status.neighbor_poll = {};
+agent_status.neighbor_poll.enabled = true;
 agent_status.neighbor_poll.running = false;
 
 agent_status.neighbor_discovery = {};
+agent_status.neighbor_discovery.enabled = true;
 agent_status.neighbor_discovery.running = false;

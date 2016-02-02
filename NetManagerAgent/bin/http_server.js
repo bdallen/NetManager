@@ -5,6 +5,7 @@ var config = require('./../config/config.js');
 var agent_status = require('./status.js');
 var http = require('http');
 var colors = require('colors/safe');
+var os = require('os');
 var fs = require('fs');
 
 function handleRequest(request, response) {
@@ -22,6 +23,10 @@ function handleRequest(request, response) {
     if (request.url == '/status') {
         response.writeHead(200, {'Content-Type': 'application/json'});
         response.end(JSON.stringify(agent_status));
+    }
+    if (request.url == '/hostname') {
+        response.writeHead(200, {'Content-Type': 'application/json'});
+        response.end(JSON.stringify(os.hostname()));
     }
 }
 
