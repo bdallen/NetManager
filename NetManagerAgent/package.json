@@ -2,7 +2,7 @@
   "name": "netmanageragent",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./bin/start.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +11,12 @@
   "dependencies": {
     "bluebird": "^3.1.5",
     "colors": "^1.1.2",
+    "cron": "^1.1.0",
     "mikronode": "git+https://github.com/Trakkasure/mikronode.git#release",
     "nano-blue": "^0.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-preset-es2015": "^6.3.13"
   }
 }
