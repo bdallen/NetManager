@@ -11,27 +11,29 @@ var nano = require('nano-blue')(config.couchdb.url);
     ------------------------------
     Checks to see if it can fetch a record from the couch database, if not it will create the database and the initial configuration storage document.
  */
-startup_db.CheckDBExists = function (nmDb) {
+startup_db.CheckDBExists = function () {
 
-        // See if we can fetch the configuration document from the database
-        return nmDb.get('netmanager-configuration').then((body) => {
-            console.log(colors.green('OK: ') + 'Configuration Record in Database ');
-            return true;
-        }, (err) => {
+    var nmDb = nano.use(config.couchdb.db);
 
-                // We cant get the data, so we dont have a database probably, so lets create it
-                return nano.db.create(config.couchdb.db).then((body) => {
-                    console.log(colors.green('OK: ') +  'Created Database ' + config.couchdb.db);
+    // See if we can fetch the configuration document from the database
+    return nmDb.get('netmanager-configuration').then((body) => {
+        console.log(colors.green('OK: ') + 'Configuration Record in Database ');
+        return true;
+    }, (err) => {
 
-                    // Write out the inital netmanager-configuration document
-                    return nmDb.insert({_id: 'netmanager-configuration'}).then((body) => {
-                        return true;
-                    });
+            // We cant get the data, so we dont have a database probably, so lets create it
+            return nano.db.create(config.couchdb.db).then((body) => {
+                console.log(colors.green('OK: ') +  'Created Database ' + config.couchdb.db);
 
-                }, (err) => {
-                    throw(err);
+                // Write out the inital netmanager-configuration document
+                return nmDb.insert({_id: 'netmanager-configuration'}).then((body) => {
+                    return true;
                 });
+
+            }, (err) => {
+                throw(err);
             });
+        });
 };
 
 /*
@@ -39,7 +41,9 @@ startup_db.CheckDBExists = function (nmDb) {
  ------------------------------
  Checks to see if it can fetch a record from the couch database, if not it will create the database and the initial configuration storage document.
  */
-startup_db.CheckAgentConfig = function (nmDb) {
+startup_db.CheckAgentConfig = function () {
+
+    var nmDb = nano.use(config.couchdb.db);
 
     return nmDb.get('agent-' + os.hostname()).then((body) => {
         console.log(colors.green('OK: ') + 'Agent Configration Document Exists for host ' + os.hostname());

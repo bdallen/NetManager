@@ -4,7 +4,7 @@ var config = module.exports = {};
     Agent Configuration
  */
 config.http_server = {};
-config.http_server.listeningPort = 9001;
+config.http_server.listeningPort = 3000;
 
 /*
     CouchDB Configuration

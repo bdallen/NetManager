@@ -30,15 +30,19 @@ var http_server = require('./http_server.js');
 console.log('');
 console.log('***** Startup Sequence Checks *******');
 
-// Lets try and connect to the database server
-try {
-    var nmDb = nano.use(config.couchdb.db);
-} catch (ex)
-{
-    console.log('* Database Server: ' + colors.red('FAIL'));
-    console.log('Is Apache CouchDB Running?');
-    process.exit();
-}
-
 // Run preflight checks before starting agent
-startup_db.CheckDBExists(nmDb).then(startup_db.CheckAgentConfig(nmDb));
+startup_db.CheckDBExists()
+    .then(startup_db.CheckAgentConfig)
+    .catch((err) => {
+        ErrHandle(err);
+    });
+
+/*
+    Handle Startup Error Processes
+ */
+function ErrHandle(err) {
+    if (err.code == 'ECONNREFUSED') {
+        console.log(colors.red('*** FATAL *** : ') + ' CouchDB Not Running or misconfigured, please ensure CouchDB is running and is accessable. CouchDB URL ' + config.couchdb.url);
+        process.exit();
+    }
+}

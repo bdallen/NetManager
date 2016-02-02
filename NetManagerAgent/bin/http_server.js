@@ -5,10 +5,19 @@ var config = require('./../config/config.js');
 var agent_status = require('./status.js');
 var http = require('http');
 var colors = require('colors/safe');
+var fs = require('fs');
 
 function handleRequest(request, response) {
     if (request.url == '/') {
-        response.end("NetManager Agent - Current Status");
+        fs.readFile(__dirname + '/html/index.static.html', function (err, data) {
+            if (err) {
+                response.writeHead(503);
+                response.end(JSON.stringify(err));
+                return;
+            }
+            response.writeHead(200);
+            response.end(data);
+        })
     }
     if (request.url == '/status') {
         response.writeHead(200, {'Content-Type': 'application/json'});
