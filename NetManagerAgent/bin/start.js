@@ -9,11 +9,13 @@
 "use strict";
 var config = require('./../config/config.js');
 var colors = require('colors/safe');
-var Promise = require('bluebird');
-
-var nano = require('nano-blue')(config.couchdb.url);
-
+var Promise =require('bluebird');
 var startup_db = require('./startup_db.js');
+var http_server = require('./http_server.js');
+var CronJob = require('cron').CronJob;
+var agent_config = require('./../config/agent.js');
+var tasks = require('./../tasks');
+
 
 // Starup Information
 console.log(colors.rainbow(" _   _      _   __  __                                           "));
@@ -26,13 +28,14 @@ console.log('');
 console.log('NetManager Agent - Starting Up');
 console.log('Copyright (c) 2016 Brendon D Allen');
 console.log('');
-var http_server = require('./http_server.js');
+http_server.Start();
 console.log('');
 console.log('***** Startup Sequence Checks *******');
 
 // Run preflight checks before starting agent
 startup_db.CheckDBExists()
     .then(startup_db.CheckAgentConfig)
+    .then(tasks.startup)
     .catch((err) => {
         ErrHandle(err);
     });
@@ -46,3 +49,5 @@ function ErrHandle(err) {
         process.exit();
     }
 }
+
+

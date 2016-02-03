@@ -142,7 +142,7 @@
      */
 
     .splash-container {
-        background: #ffffb3;
+        background: #6699ff;
         z-index: 1;
         overflow: hidden;
         /* The following styles are required for the "scroll-over" effect */
@@ -428,12 +428,12 @@
      */
     function IsNeighborDiscOK(data)
     {
-        if (data.neighbor_discovery.running && data.neighbor_discovery.enabled)
+        if (data.neighbor_discovery_service.running && data.neighbor_discovery_service.enabled)
         {
             return true;
         }
 
-        if (!data.neighbor_discovery.enabled)
+        if (!data.neighbor_discovery_service.enabled)
         {
             return true;
         }
@@ -446,12 +446,12 @@
      */
     function IsNeighborMonOK(data)
     {
-        if (data.neighbor_poll.running && data.neighbor_poll.enabled)
+        if (data.neighbor_monitoring_service.running && data.neighbor_monitoring_service.enabled)
         {
             return true;
         }
 
-        if (!data.neighbor_poll.enabled)
+        if (!data.neighbor_monitoring_service.enabled)
         {
             return true;
         }
@@ -461,15 +461,15 @@
 
     function SetNeighborDiscovery(data)
     {
-        if (data.neighbor_discovery.running && data.neighbor_discovery.enabled)
+        if (data.neighbor_discovery_service.running && data.neighbor_discovery_service.enabled)
         {
             $("#neighbordisc").attr("class", "fa fa-check-square-o");
         }
-        if (!data.neighbor_discovery.running && data.neighbor_discovery.enabled)
+        if (!data.neighbor_discovery_service.running && data.neighbor_discovery_service.enabled)
         {
             $("#neighbordisc").attr("class", "fa fa-square-o");
         }
-        if (!data.neighbor_discovery.enabled)
+        if (!data.neighbor_discovery_service.enabled)
         {
             $("#neighbordisc").attr("class", "fa fa-minus-square");
         }
@@ -477,15 +477,15 @@
 
     function SetNeighborMonitor(data)
     {
-        if (data.neighbor_poll.running && data.neighbor_poll.enabled)
+        if (data.neighbor_monitoring_service.running && data.neighbor_monitoring_service.enabled)
         {
             $("#neighborpoll").attr("class", "fa fa-check-square-o");
         }
-        if (!data.neighbor_poll.running && data.neighbor_poll.enabled)
+        if (!data.neighbor_monitoring_service.running && data.neighbor_monitoring_service.enabled)
         {
             $("#neighborpoll").attr("class", "fa fa-square-o");
         }
-        if (!data.neighbor_poll.enabled)
+        if (!data.neighbor_monitoring_service.enabled)
         {
             $("#neighborpoll").attr("class", "fa fa-minus-square");
         }
