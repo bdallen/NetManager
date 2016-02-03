@@ -23,7 +23,7 @@ export default class http_server {
 
         // Route / to the status HTML page
         if (request.url == '/') {
-            fs.readFile(__dirname + '/html/index.static.html', function (err, data) {
+            fs.readFile(__dirname + '/../static/index.html', function (err, data) {
                 if (err) {
                     response.writeHead(503);
                     response.end(JSON.stringify(err));

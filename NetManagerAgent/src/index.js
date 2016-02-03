@@ -12,7 +12,6 @@ import colors from 'colors/safe';
 var Promise =require('bluebird');
 var startup_db = require('./bin/startup_db.js');
 import http_server from './bin/http_server.js';
-var agent_config = require('./config/agent.js');
 var tasks = require('./tasks/index');
 
 // Starup Information
@@ -38,6 +37,8 @@ startup_db.CheckDBExists()
     .catch((err) => {
         ErrHandle(err);
     });
+
+//Promise.all([]);
 
 /*
     Handle Startup Error Processes
