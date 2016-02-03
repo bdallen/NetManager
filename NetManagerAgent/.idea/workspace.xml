@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b932ebdf-b1d3-427a-b58d-252712a767d6" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/html/index.static.html" afterPath="$PROJECT_DIR$/src/bin/html/index.static.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/http_server.js" afterPath="$PROJECT_DIR$/src/bin/http_server.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/start.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/startup_db.js" afterPath="$PROJECT_DIR$/src/bin/startup_db.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/config/agent.js" afterPath="$PROJECT_DIR$/src/config/agent.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/config/config.js" afterPath="$PROJECT_DIR$/src/config/config.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tasks/index.js" afterPath="$PROJECT_DIR$/src/tasks/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tasks/neighbor_discovery.js" afterPath="$PROJECT_DIR$/src/tasks/neighbor_discovery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tasks/neighbor_polling.js" afterPath="$PROJECT_DIR$/src/tasks/neighbor_polling.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.babelrc" afterPath="$PROJECT_DIR$/.babelrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/NetManagerAgent.iml" afterPath="$PROJECT_DIR$/.idea/NetManagerAgent.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../NetManagerWeb/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../NetManagerWeb/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bin/http_server.js" afterPath="$PROJECT_DIR$/src/bin/http_server.js" />
     </list>
     <ignored path="NetManagerAgent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +36,8 @@
       <file leaf-file-name="http_server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bin/http_server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.25083613">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8277592">
+              <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -101,8 +87,8 @@
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/build/src/bin/http_server.js" />
-        <option value="$PROJECT_DIR$/src/bin/http_server.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/bin/http_server.js" />
       </list>
     </option>
   </component>
@@ -656,8 +642,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bin/http_server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.25083613">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8277592">
+          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
           <folding />
         </state>
       </provider>

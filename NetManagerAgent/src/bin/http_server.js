@@ -1,8 +1,8 @@
 "use strict";
 var config = require('./../config/config.js');
 var agent_config = require('./../config/agent.js');
-var http = require('http');
-var colors = require('colors/safe');
+import http from 'http';
+import colors from 'colors/safe';
 import os from 'os';
 import fs from 'fs';
 
