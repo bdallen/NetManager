@@ -20,8 +20,8 @@ agent_config.http_service.running = false;
     Neighbor Discovery Service
  */
 agent_config.neighbor_discovery_service = {};
-agent_config.neighbor_discovery_service.enabled = false;
-agent_config.neighbor_discovery_service.cron = '60 * * * * *';
+agent_config.neighbor_discovery_service.enabled = true;
+agent_config.neighbor_discovery_service.cron = '10 * * * * *';
 agent_config.neighbor_discovery_service.running = false;
 
 /*

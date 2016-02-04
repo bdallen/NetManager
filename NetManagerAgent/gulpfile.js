@@ -6,9 +6,13 @@ const gulp = require("gulp");
 const babel = require("gulp-babel");
 const del = require("del");
 
-gulp.task("copy:static", ["clean:static"], () => {
+gulp.task("copy:static", ["clean:static"], function() {
     return gulp.src("src/static/**/*")
         .pipe(gulp.dest("build/static/"));
+});
+
+gulp.task("clean:all", function() {
+    return del(["build/**/*"]);
 });
 
 gulp.task("compile:all", ["copy:static"], function () {
@@ -17,10 +21,6 @@ gulp.task("compile:all", ["copy:static"], function () {
     .pipe(gulp.dest("build"));
 });
 
-gulp.task("clean:static", () => {
+gulp.task("clean:static", function() {
     return del(["build/static/**/*"]);
-});
-
-gulp.task("clean:all", () => {
-    return del(["build/**/*"]);
 });

@@ -1,6 +1,7 @@
 "use strict";
 var config = require('./../config/config.js');
 var agent_config = require('./../config/agent.js');
+import Promise from 'bluebird';
 import http from 'http';
 import colors from 'colors/safe';
 import os from 'os';
